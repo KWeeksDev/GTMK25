@@ -2,11 +2,15 @@ extends CanvasLayer
 
 @onready var timer := $GameTimer
 @onready var bar := $GameTimerBar
+@onready var book_sprite: Sprite2D = $BookSprite
+@onready var book_button: Button = $BookButton
+@onready var icon_button: TextureButton = $IconButton
 
 signal timer_ended
+signal on_hud_element(is_on:bool)
 
-var total_time := 30.0
-var elapsed_time := 0.0
+var total_time := 130.0
+@export var elapsed_time := 0.0
 var is_running := false
 
 func _ready() -> void:
@@ -37,3 +41,24 @@ func pauseTimer():
 
 func resumeTimer():
 	timer.start()
+
+func _on_texture_button_pressed() -> void:
+	book_sprite.visible = true
+	book_button.visible = true
+
+func _on_book_button_mouse_entered() -> void:
+	emit_signal("on_hud_element",true)
+
+func _on_book_button_mouse_exited() -> void:
+	emit_signal("on_hud_element",false)
+
+func _on_icon_button_mouse_entered() -> void:
+	emit_signal("on_hud_element",true)
+
+func _on_icon_button_mouse_exited() -> void:
+	emit_signal("on_hud_element",false)
+
+
+func _on_book_button_pressed() -> void:
+	book_sprite.visible = false
+	book_button.visible = false

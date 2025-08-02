@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bgs4rubwyhfqq" path="res://scenes/startmenu/start_menu.gd" id="1_b5igb"]
 
 [node name="StartMenu" type="MarginContainer"]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 640.0
+offset_bottom = 480.0
 script = ExtResource("1_b5igb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -22,7 +22,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 400)
+custom_minimum_size = Vector2(0, 320)
 layout_mode = 2
 
 [node name="StartButton" type="Button" parent="HBoxContainer/HBoxContainer/VBoxContainer"]
@@ -34,7 +34,7 @@ text = "START"
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-text = "                                                                                  a game by Geokraken   "
+text = "                        a game by Geokraken   "
 horizontal_alignment = 2
 
 [connection signal="ready" from="." to="." method="_on_ready"]

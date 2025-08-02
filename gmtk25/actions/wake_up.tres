@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_4xg8e")
 gesture_name = "line"
-background_name = ""
-sfx_name = ""
+gesture_reminder_name = ""
+background_name = "wake_up_scene.png"
+sfx_name = "mechanical-alarm-clock-14474_ringing.wav"
+sprite_animation = "title_animation.tscn"
 metadata/_custom_type_script = "uid://elotbxopl072"

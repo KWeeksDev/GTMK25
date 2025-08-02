@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ph2jtu3qiy1r"]
+
+[ext_resource type="PackedScene" uid="uid://br5g2vutfi3e5" path="res://animations/action_animation_sprite.tscn" id="1_soyhd"]
+
+[node name="ActionAnimationSprite" instance=ExtResource("1_soyhd")]

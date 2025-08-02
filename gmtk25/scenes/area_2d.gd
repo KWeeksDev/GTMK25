@@ -1,9 +1,10 @@
 extends Area2D
 
-var allow_drawing = false
+@export var allow_drawing = false
 var is_drawing = false
 var raw_points: PackedVector2Array = []
 var threshold = 30.0
+@onready var casting_particles_2d: CPUParticles2D = $"../CastingParticles2D"
 
 const SAMPLE_SIZE = 32
 const TEMPLATE_SIZE = Vector2(300,300)
@@ -26,13 +27,16 @@ func _input(event):
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				is_drawing = event.pressed
+				casting_particles_2d.emitting = event.pressed
 				if !is_drawing:
 					#pass
 					process_shape()
 				else:
 					raw_points.clear()
+					casting_particles_2d.emission_points.clear()
 		elif event is InputEventMouseMotion and is_drawing:
 			raw_points.append(to_local(event.position))
+			casting_particles_2d.set_emission_points(raw_points)
 			queue_redraw()
 		elif event is InputEventKey and event.pressed:
 			if event.keycode == KEY_N:
@@ -56,8 +60,10 @@ func _input(event):
 
 func _draw():
 	if raw_points.size() > 1:
-		draw_polyline(raw_points, Color.RED, 2)
-		
+		draw_polyline(raw_points, Color.YELLOW, 4)
+		#casting_particles_2d.position = 
+
+
 func save_template(name):
 	var new_resource = templates[name]
 	var normaled = normalize(resample(raw_points, SAMPLE_SIZE))
@@ -100,6 +106,10 @@ func process_shape():
 	else:
 		print("No Match. Best was: ", best_match, " (", best_score, ")")
 		emit_signal("shape_matched",false)
+	# Cleanup drawn lines and particles
+	raw_points.clear()
+	#casting_particles_2d.emitting = false
+	queue_redraw()
 
 func resample(points: PackedVector2Array, n: int) -> PackedVector2Array:
 	# Early out for speed

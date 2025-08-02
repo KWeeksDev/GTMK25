@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_1lb4e")
 gesture_name = "triangle"
+gesture_reminder_name = ""
 background_name = ""
-sfx_name = ""
+sfx_name = "mechanical-alarm-clock-14474_ticking.wav"
+sprites = Array[String]([])
+animations = Array[String]([])
 metadata/_custom_type_script = "uid://elotbxopl072"
