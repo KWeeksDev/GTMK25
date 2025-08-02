@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq66i6144wfct"]
+
+[ext_resource type="Script" uid="uid://c4vuwgihwjmml" path="res://scenes/hud/hud.gd" id="1_48c2t"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_48c2t")
+
+[node name="GameTimerBar" type="ProgressBar" parent="."]
+modulate = Color(0.356863, 0, 0.705882, 1)
+offset_right = 1152.0
+offset_bottom = 27.0
+max_value = 300.0
+step = 1.0
+value = 300.0
+show_percentage = false
+
+[node name="GameTimer" type="Timer" parent="."]
+autostart = true

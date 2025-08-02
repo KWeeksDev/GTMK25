@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionResource" load_steps=2 format=3 uid="uid://b8qthjt5v2mv"]
+
+[ext_resource type="Script" uid="uid://elotbxopl072" path="res://actions/ActionResource.gd" id="1_1s7cd"]
+
+[resource]
+script = ExtResource("1_1s7cd")
+gesture_name = "circle"
+background_name = ""
+sfx_name = ""
+metadata/_custom_type_script = "uid://elotbxopl072"
